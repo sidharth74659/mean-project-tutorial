@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AddEmployeeComponent } from "./add-employee/add-employee.component";
-import { EditEmployeeComponent } from "./edit-employee/edit-employee.component";
-import { EmployeesListComponent } from "./employees-list/employees-list.component";
+import { AddEmployeeComponent } from "./emp-dashboard/add-employee/add-employee.component";
+import { EditEmployeeComponent } from "./emp-dashboard/edit-employee/edit-employee.component";
+import { EmployeesListComponent } from "./emp-dashboard/employees-list/employees-list.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "employees", pathMatch: "full" },

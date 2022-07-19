@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
-import { Employee } from "../shared/interfaces/employee";
-import { EmployeeService } from "../shared/services/employee.service";
+import { Employee } from "../../shared/interfaces/employee";
+import { EmployeeService } from "../../shared/services/employee.service";
 
 @Component({
   selector: "app-edit-employee",

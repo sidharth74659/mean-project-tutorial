@@ -1,6 +1,6 @@
-import * as mongodb from "mongodb";
-import { Employee } from "../models/employee.model";
+// import * as mongodb from "mongodb";
+// import { EmployeeModel } from "../../models/Employee.model";
 
-export type EmpCollectionType = {
-  employees?: mongodb.Collection<Employee>;
-};
+// export type EmpCollectionType = {
+//   employees?: mongodb.Collection<Employee>;
+// };

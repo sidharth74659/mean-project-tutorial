@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Employee } from "../shared/interfaces/employee";
-import { EmployeeService } from "../shared/services/employee.service";
+import { Employee } from "../../shared/interfaces/employee";
+import { EmployeeService } from "../../shared/services/employee.service";
 
 
 @Component({

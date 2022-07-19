@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { Employee } from "../shared/interfaces/employee";
-import { EmployeeService } from "../shared/services/employee.service";
+import { Employee } from "../../shared/interfaces/employee";
+import { EmployeeService } from "../../shared/services/employee.service";
 
 @Component({
   selector: "app-employees-list",

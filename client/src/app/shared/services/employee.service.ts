@@ -9,7 +9,7 @@ import { Employee } from "../interfaces/employee";
 export class EmployeeService {
   private url = `http://localhost:${3000 || 5000}`;
   private employees$: Subject<Employee[]> = new Subject();
-  
+
   constructor(private httpClient: HttpClient) {
     console.log(this.url);
   }
@@ -32,19 +32,19 @@ export class EmployeeService {
   }
 
   createEmployee(employee: Employee): Observable<string> {
-    return this.httpClient.post(`${this.url}/employees`, employee, {
+    return this.httpClient.post(`${this.url}/employees/add`, employee, {
       responseType: "text", // i.e., response as string(error or success message)
     });
   }
 
   updateEmployee(id: string, employee: Employee): Observable<string> {
-    return this.httpClient.put(`${this.url}/employees/${id}`, employee, {
+    return this.httpClient.put(`${this.url}/employees/update/${id}`, employee, {
       responseType: "text",
     });
   }
 
   deleteEmployee(id: string): Observable<string> {
-    return this.httpClient.delete(`${this.url}/employees/${id}`, {
+    return this.httpClient.delete(`${this.url}/employees/delete/${id}`, {
       responseType: "text",
     });
   }

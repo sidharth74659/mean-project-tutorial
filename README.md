@@ -1,6 +1,8 @@
 # mean-project-tutorial
 
-- [Source](https://www.mongodb.com/languages/mean-stack-tutorial)
+- [ ] This project tutorial(or reference) :
+
+  - [server](./reference/mongoose-tutorial.md)
 
 - [ ] Folder Structure :
 
@@ -53,7 +55,10 @@
       ts-node
 
   "global" :
+    // npm install -g
       @angular/cli
+      ts-node
+      nodemon
   ```
 
 - [ ] Routes : `/employees`
@@ -63,4 +68,8 @@
 
 ##### Helpful Links :
 
-- [ ] [Status Codes](https://umbraco.com/knowledge-base/http-status-codes/)
+- [Using MongoDB](https://www.mongodb.com/languages/mean-stack-tutorial)
+
+- [Using Mongoose](https://www.youtube.com/watch?v=72_5_YuDCNA)
+
+- [Status Codes](https://umbraco.com/knowledge-base/http-status-codes/)
