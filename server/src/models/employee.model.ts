@@ -33,7 +33,8 @@ const EmployeeSchema: Schema = new Schema({
   },
 });
 
-const documentCollectionName = "Employee";
+// const documentCollectionName = "Employee";
+const documentCollectionName = "employees";
 
 const Employee: Model<IEmployeeModel> = mongoose.model<IEmployeeModel>(
   documentCollectionName,

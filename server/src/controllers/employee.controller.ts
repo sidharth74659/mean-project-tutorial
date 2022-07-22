@@ -31,7 +31,7 @@ const findEmployee = (req: Request, res: Response) => {
       if (employee) {
         res.status(200).send(employee);
       } else {
-        res.status(404).send(`Not found`);
+        res.status(404).send(`Can't Find Employee`);
       }
     })
     .catch((error) =>
@@ -43,21 +43,9 @@ const findEmployee = (req: Request, res: Response) => {
 const updateEmployee = (req: Request, res: Response) => {
   const id = req.params.id;
 
-  // return Employee.findByIdAndUpdate(id, req.body, { new: true });
-
-  return Employee.findById(id)
+  return Employee.findByIdAndUpdate(id, req.body, { new: true })
     .then((employee) => {
-      if (employee) {
-        // Object.assign(employee, req.body);
-        employee.set(req.body);
-
-        return employee
-          .save()
-          .then(() => res.status(201).send(`Updated employee: ID ${id}.`))
-          .catch((error) => res.status(400).send(error.message));
-      } else {
-        res.status(404).send(`Not found`);
-      }
+      res.status(201).send(`Updated employee: ID ${id}.`);  
     })
     .catch((error) =>
       res.status(500).send(`Failed to find an employee: ID ${id}`)
@@ -73,7 +61,7 @@ const deleteEmployee = (req: Request, res: Response) => {
       if (employee) {
         res.status(201).send(`Deleted employee: ID ${id}.`);
       } else {
-        res.status(404).send(`Not found`);
+        res.status(404).send(`Not found to Delete`);
       }
     })
     .catch((error) =>

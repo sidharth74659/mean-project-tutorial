@@ -4,6 +4,7 @@ import express from "express";
 import http from "http";
 import mongoose from "mongoose";
 import { connectToDB } from "./database";
+import { employeeRouter } from "./routes/employee.routes";
 // import { connectToDB } from "./database";
 
 // Connect to MongoDB
@@ -21,29 +22,30 @@ const startServer = () => {
   const app = express();
 
   /** Rules of our API */
-  app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin,X-Requested-with,Content-Type, Accept, Authorization"
-    );
+  // app.use((req, res, next) => {
+  //   res.header("Access-Control-Allow-Origin", "*");
+  //   res.header(
+  //     "Access-Control-Allow-Headers",
+  //     "Origin,X-Requested-with,Content-Type, Accept, Authorization"
+  //   );
 
-    if (req.method == "OPTIONS") {
-      res.header(
-        "Access-Control-Allow-Methods",
-        "PUT, POST, PATCH, DELETE, GET"
-      );
-      // TODO : Tweak it to accept 'text' and json
-      return res.status(200).json({});
-    }
-    next(); // Passing the request to the next handler, or the next middleware, otherwise the request will be blocked
-  });
+  //   if (req.method == "OPTIONS") {
+  //     res.header(
+  //       "Access-Control-Allow-Methods",
+  //       "PUT, POST, PATCH, DELETE, GET"
+  //     );
+  //     // TODO : Tweak it to accept 'text' and json
+  //     return res.status(200).json({});
+  //   }
+  //   next(); // Passing the request to the next handler, or the next middleware, otherwise the request will be blocked
+  // });
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   // router.use(express.static("public"));
 
   /** Routes */
+  app.use("/employees", employeeRouter);
 
   /** Healthcheck*/
   app.get("/ping", (req, res, next) =>
@@ -52,9 +54,9 @@ const startServer = () => {
 
   /** Error handling*/
   app.use((req, res, next) => {
-    const error = new Error("not found");
+    const error = new Error("error handling");
 
-    return res.status(404).json({ message: error.message });
+    return res.status(404).json({ message: error });
   });
 
   /** Start the server */

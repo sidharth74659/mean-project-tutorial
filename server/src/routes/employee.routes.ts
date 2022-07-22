@@ -1,12 +1,12 @@
 import express from "express";
-import controller from "../controllers/Employee.controller";
+import controller from "../controllers/employee.controller";
 
-const app = express();
+export const employeeRouter = express.Router();
 
-app.get("/", controller.employeeList);
-app.get("/:id", controller.findEmployee);
+employeeRouter.get("/", controller.employeeList);
+employeeRouter.get("/:id", controller.findEmployee);
 
-app.post("/add", controller.addEmployee);
+employeeRouter.post("/add", controller.addEmployee);
 
-app.put("/update/:id", controller.updateEmployee);
-app.delete("/delete/:id", controller.deleteEmployee);
+employeeRouter.put("/update/:id", controller.updateEmployee);
+employeeRouter.delete("/delete/:id", controller.deleteEmployee);
