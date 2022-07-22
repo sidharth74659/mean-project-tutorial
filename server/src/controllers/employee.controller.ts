@@ -4,7 +4,7 @@ import Employee from "../models/employee.model";
 // @Employee List
 const employeeList = (req: Request, res: Response) => {
   return Employee.find({})
-    .then((employees) => res.status(200).json({ employees }))
+    .then((employees) => res.status(200).json(employees))
     .catch((error) => res.status(500).send(error.message));
 };
 
@@ -45,7 +45,7 @@ const updateEmployee = (req: Request, res: Response) => {
 
   return Employee.findByIdAndUpdate(id, req.body, { new: true })
     .then((employee) => {
-      res.status(201).send(`Updated employee: ID ${id}.`);  
+      res.status(201).send(`Updated employee: ID ${id}.`);
     })
     .catch((error) =>
       res.status(500).send(`Failed to find an employee: ID ${id}`)

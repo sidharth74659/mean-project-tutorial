@@ -18,6 +18,7 @@ export class EmployeeService {
     this.httpClient
       .get<Employee[]>(`${this.url}/employees`)
       .subscribe((employees) => {
+        console.log(employees);
         this.employees$.next(employees);
       });
   }
@@ -38,13 +39,17 @@ export class EmployeeService {
   }
 
   updateEmployee(id: string, employee: Employee): Observable<string> {
-    return this.httpClient.put(`${this.url}/employees/update/${id}`, employee, {
-      responseType: "text",
-    });
+    return this.httpClient.post(
+      `${this.url}/employees/update/${id}`,
+      employee,
+      {
+        responseType: "text",
+      }
+    );
   }
 
   deleteEmployee(id: string): Observable<string> {
-    return this.httpClient.delete(`${this.url}/employees/delete/${id}`, {
+    return this.httpClient.post(`${this.url}/employees/delete/${id}`, null, {
       responseType: "text",
     });
   }

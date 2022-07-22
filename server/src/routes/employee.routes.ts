@@ -8,5 +8,5 @@ employeeRouter.get("/:id", controller.findEmployee);
 
 employeeRouter.post("/add", controller.addEmployee);
 
-employeeRouter.put("/update/:id", controller.updateEmployee);
-employeeRouter.delete("/delete/:id", controller.deleteEmployee);
+employeeRouter.post("/update/:id", controller.updateEmployee);
+employeeRouter.post("/delete/:id", controller.deleteEmployee);
